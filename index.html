@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zapatillas con placa de carbono: ¿realmente las necesitas? | Jrun Lab</title>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #555555;
+      --soft: #f5f5f5;
+      --border: #e5e5e5;
+      --black: #050505;
+      --orange: #ff8a00;
+      --orange-dark: #d96f00;
+      --green: #34d399;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--black);
+      letter-spacing: -0.03em;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      transition: 0.2s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #111;
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-dark);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: #111;
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      background: #333;
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 70px 0 45px;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(circle at top left, rgba(255,138,0,.12), transparent 35%),
+        linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 330px;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #111;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -0.07em;
+      margin-bottom: 24px;
+      color: #050505;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 790px;
+      margin-bottom: 28px;
+    }
+
+    .hero-card {
+      background: #111;
+      color: #fff;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.12);
+    }
+
+    .hero-card img {
+      width: 90px;
+      margin-bottom: 20px;
+    }
+
+    .hero-card h3 {
+      font-size: 1.35rem;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-card p {
+      color: #d6d6d6;
+      font-size: 0.98rem;
+      margin-bottom: 22px;
+    }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 760px) 310px;
+      gap: 52px;
+      padding: 58px 0;
+      align-items: start;
+    }
+
+    article {
+      width: 100%;
+    }
+
+    .side-cta {
+      position: sticky;
+      top: 92px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.06);
+    }
+
+    .side-cta h3 {
+      font-size: 1.25rem;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .side-cta p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .side-cta .btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 48px;
+      margin-bottom: 18px;
+    }
+
+    .section-title:first-child {
+      margin-top: 0;
+    }
+
+    .section-title img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      color: #111;
+    }
+
+    h3 {
+      font-size: 1.45rem;
+      line-height: 1.25;
+      margin: 32px 0 12px;
+      color: #111;
+    }
+
+    p {
+      margin-bottom: 18px;
+      color: #232323;
+      font-size: 1.06rem;
+    }
+
+    strong {
+      color: #000;
+    }
+
+    .note {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-left: 6px solid var(--orange);
+      border-radius: 18px;
+      padding: 20px;
+      margin: 28px 0;
+    }
+
+    .note p {
+      margin-bottom: 0;
+    }
+
+    .science-box {
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      margin: 28px 0;
+    }
+
+    ul, ol {
+      margin: 16px 0 24px 22px;
+      color: #222;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1.04rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin: 26px 0;
+    }
+
+    .pace-card {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 8px 28px rgba(0,0,0,.045);
+    }
+
+    .pace-card h3 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #111;
+    }
+
+    .tag {
+      display: inline-flex;
+      background: #111;
+      color: #fff;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 26px 0;
+    }
+
+    .mini-card {
+      background: #fafafa;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px;
+    }
+
+    .mini-card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .final-cta {
+      margin-top: 60px;
+      background: #111;
+      color: #fff;
+      border-radius: 32px;
+      padding: 38px;
+      text-align: center;
+    }
+
+    .final-cta img {
+      width: 70px;
+      margin-bottom: 18px;
+    }
+
+    .final-cta h2 {
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .final-cta p {
+      color: #d8d8d8;
+      max-width: 720px;
+      margin: 0 auto 26px;
+    }
+
+    .final-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .final-button-card {
+      background: #fff;
+      color: #111;
+      border-radius: 22px;
+      padding: 24px;
+      text-align: left;
+    }
+
+    .final-button-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.25rem;
+    }
+
+    .final-button-card p {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 34px 22px;
+      text-align: center;
+      color: #777;
+      background: #fafafa;
+    }
+
+    @media (max-width: 950px) {
+      .hero-grid,
+      .article-layout,
+      .two-cols,
+      .final-buttons {
+        grid-template-columns: 1fr;
+      }
+
+      .side-cta {
+        position: static;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-actions {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .nav-actions .btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        padding-top: 44px;
+      }
+
+      .article-layout {
+        padding-top: 36px;
+      }
+
+      .final-cta {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="nav">
+      <a class="brand" href="#">
+        <img src="logo.png" alt="Jrun Lab">
+        <span>Jrun Lab</span>
+      </a>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="https://project-uu8n0.vercel.app/" target="_blank">
+          Mejorar mi rendimiento corriendo
+        </a>
+
+        <a class="btn btn-secondary" href="https://vermel-programaci-n-jrun-intensity.vercel.app/" target="_blank">
+          Test de calidad de entrenamiento
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="page hero-grid">
+        <div>
+          <div class="eyebrow">
+            <img src="logo.png" alt="Jrun Lab">
+            Guía Jrun Lab
+          </div>
+
+          <h1>Zapatillas con placa de carbono: ¿realmente las necesitas?</h1>
+
+          <p>
+            Llevas semanas viendo zapatillas con placa de carbono en redes y empiezas a pensar
+            que quizá tú también deberías comprarte unas. Antes de gastarte 250 o 300 euros,
+            conviene parar y mirar el contexto: la placa funciona, sí, pero no funciona igual
+            para todos los corredores.
+          </p>
+
+          <p>
+            En esta guía de Jrun Lab lo analizamos por ritmo, peso, tipo de entrenamiento y uso real,
+            para que puedas decidir con criterio y no por marketing.
+          </p>
+        </div>
+
+        <aside class="hero-card">
+          <img src="logo.png" alt="Jrun Lab">
+          <h3>Antes de elegir zapatillas, revisa cómo estás entrenando.</h3>
+          <p>
+            La zapatilla ayuda, pero tu progreso depende mucho más de la calidad de tus cargas,
+            descansos, ritmos y planificación.
+          </p>
+
+          <a class="btn btn-primary" href="https://project-uu8n0.vercel.app/" target="_blank">
+            Mejorar mi rendimiento
+          </a>
+        </aside>
+      </div>
+    </section>
+
+    <div class="page article-layout">
+
+      <article>
+
+        <div class="note">
+          <p>
+            <strong>Idea clave:</strong> no existe una zapatilla perfecta para todos. Una placa de carbono
+            puede ayudarte si la usas en el contexto correcto, pero también puede ser una compra cara,
+            inestable o poco útil si tu ritmo, peso o tipo de entrenamiento no encajan.
+          </p>
+        </div>
+
+        <section>
+          <div class="section-title">
+            <img src="logo.png" alt="Jrun Lab">
+            <h2>¿Qué hace exactamente una placa de carbono?</h2>
+          </div>
+
+          <p>
+            Una placa de carbono es una lámina rígida situada dentro de la mediasuela de la zapatilla.
+            Su función principal es limitar parte de la flexión del pie y favorecer una transición
+            más rápida hacia delante. Dicho de forma sencilla: ayuda a que parte de la energía que
+            generas al impactar contra el suelo se aproveche mejor en la fase de impulso.
+          </p>
+
+          <p>
+            La placa no trabaja sola. Normalmente va combinada con espumas muy reactivas, como PEBA
+            o compuestos similares, que son más ligeros y elásticos que las espumas tradicionales.
+            Esa combinación de espuma blanda, alta mediasuela y placa rígida es lo que produce
+            esa sensación de rebote o propulsión que muchos corredores notan al calzarse una zapatilla
+            de competición moderna.
+          </p>
+
+          <p>
+            Ahora bien, el matiz importante es este: para que ese sistema se aproveche de verdad,
+            necesitas aplicar suficiente fuerza contra el suelo. Esa fuerza no depende solo del ritmo.
+            También depende de tu peso, tu técnica, tu cadencia, tu rigidez muscular, tu forma de apoyar
+            y tu nivel de fatiga.
+          </p>
+
+          <p>
+            Por eso en Jrun Lab no nos gusta hablar solo de “si corres por debajo de X ritmo, necesitas carbono”.
+            Un corredor de 85 kg a 5:00/km puede generar más carga vertical que otro de 60 kg a 4:30/km.
+            El ritmo importa, pero no es la única variable.
+          </p>
+        </section>
+
+        <section>
+          <div class="section-title">
+            <img src="logo.png" alt="Jrun Lab">
+            <h2>Lo que dice la ciencia, y lo que no conviene exagerar</h2>
+          </div>
+
+          <div class="science-box">
+            <p>
+              El estudio más citado sobre este tema es el de Hoogkamer y colaboradores, publicado en
+              <em>Sports Medicine</em> en 2018. Analizó el coste energético de correr con zapatillas
+              de competición modernas, especialmente en torno al efecto de las Nike Vaporfly.
+            </p>
+          </div>
+
+          <p>
+            La conclusión que se suele repetir es que este tipo de zapatillas puede mejorar la economía
+            de carrera en torno a un 4% frente a modelos de competición tradicionales. Pero quedarse
+            solo con ese número es simplificar demasiado.
+          </p>
+
+          <ul>
+            <li>
+              <strong>La mejora media existe,</strong> pero no todos los corredores responden igual.
+              Algunos pueden notar un beneficio claro y otros apenas percibir diferencia.
+            </li>
+            <li>
+              <strong>La respuesta individual varía mucho.</strong> Hay corredores que se adaptan muy bien
+              a la geometría y otros que se sienten torpes, inestables o incómodos.
+            </li>
+            <li>
+              <strong>A ritmos más lentos, el beneficio suele atenuarse,</strong> aunque no desaparece
+              de golpe en un punto exacto.
+            </li>
+            <li>
+              <strong>La inestabilidad mediolateral existe.</strong> Muchas zapatillas con placa tienen
+              mucha altura, espuma blanda y base estrecha. Eso puede exigir más control al tobillo,
+              pie y cadera.
+            </li>
+            <li>
+              <strong>Economía de carrera no es lo mismo que tiempo final.</strong> Un 4% en laboratorio
+              no se traduce automáticamente en un 4% menos en tu maratón.
+            </li>
+          </ul>
+
+          <p>
+            En carrera real entran más factores: fatiga, calor, desnivel, curvas, asfalto irregular,
+            avituallamientos, gestión mental, sueño, estrés y estrategia. La zapatilla puede sumar,
+            pero no sustituye a una buena preparación.
+          </p>
+        </section>
+
+        <section>
+          <div class="section-title">
+            <img src="logo.png" alt="Jrun Lab">
+            <h2>Zapatilla de competición vs zapatilla de entrenamiento con placa</h2>
+          </div>
+
+          <p>
+            Uno de los errores más habituales es meter todas las zapatillas con placa en el mismo saco.
+            No es lo mismo una zapatilla radical de competición que una zapatilla mixta para entrenamientos
+            de calidad.
+          </p>
+
+          <div class="two-cols">
+            <div class="mini-card">
+              <h3>Competición pura</h3>
+              <p>
+                Suelen tener placa completa, espumas muy reactivas, geometría agresiva, poco peso y una
+                vida útil más corta. Están pensadas para competir o para sesiones muy concretas.
+              </p>
+              <p>
+                Ejemplos: Nike Vaporfly, Nike Alphafly, Adidas Adios Pro, ASICS Metaspeed,
+                Saucony Endorphin Pro.
+              </p>
+            </div>
+
+            <div class="mini-card">
+              <h3>Entreno con placa o mixta reactiva</h3>
+              <p>
+                Suelen ser más estables, algo más duraderas y menos agresivas. Algunas llevan placa
+                parcial, placa de nailon o una geometría menos extrema.
+              </p>
+              <p>
+                Ejemplos: Saucony Endorphin Speed, Hoka Mach X, Nike Tempo, New Balance Rebel
+                o modelos similares.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            Para muchos corredores populares que entrenan en serio, pero no compiten cada pocas semanas,
+            una zapatilla mixta o de entrenamiento con placa parcial puede tener más sentido que una
+            superzapatilla de competición. Es más versátil, suele durar más y permite hacer sesiones
+            de calidad sin ir siempre con un calzado extremo.
+          </p>
+        </section>
+
+        <section>
+          <div class="section-title">
+            <img src="logo.png" alt="Jrun Lab">
+            <h2>Guía orientativa por ritmo y peso</h2>
+          </div>
+
+          <p>
+            Esta guía no es una regla matemática. Es un punto de partida. En Jrun Lab siempre miramos
+            el conjunto: ritmo real, peso, técnica, historial de lesiones, tipo de entrenamiento,
+            objetivo y sensaciones del corredor.
+          </p>
+
+          <div class="cards">
+
+            <div class="pace-card">
+              <span class="tag">1. Ritmo de rodaje superior a 5:00/km</span>
+              <h3>La mayoría de runners populares</h3>
+
+              <p>
+                Aquí suele estar una gran parte de corredores populares: personas que ruedan entre 5:30
+                y 6:30/km, salen tres o cuatro días por semana y quizá preparan una 10K, una media maratón
+                o simplemente quieren correr mejor.
+              </p>
+
+              <p>
+                En este tramo, lo más inteligente suele ser priorizar una zapatilla amortiguada, cómoda,
+                estable y adecuada a tu pisada. Para muchos corredores, una zapatilla de entre 80 y 130 euros
+                puede ofrecer más beneficio real que una placa de carbono de competición.
+              </p>
+
+              <p>
+                Una excepción: si pesas más de 80 kg y haces entrenamientos puntuales por debajo de 5:00/km,
+                una zapatilla mixta o con placa parcial puede tener sentido para sesiones concretas.
+              </p>
+
+              <ul>
+                <li>Más comodidad en tiradas largas.</li>
+                <li>Más kilometraje útil.</li>
+                <li>Menos exigencia de estabilidad.</li>
+                <li>Mejor relación coste-beneficio.</li>
+              </ul>
+            </div>
+
+            <div class="pace-card">
+              <span class="tag">2. Ritmo de rodaje entre 4:30 y 5:00/km</span>
+              <h3>Zona intermedia: aquí empieza el matiz</h3>
+
+              <p>
+                Si ruedas en esta zona, ya entrenas con cierta estructura. Probablemente conoces tus ritmos,
+                has competido varias veces y haces sesiones de calidad.
+              </p>
+
+              <p>
+                Aquí sí puede tener sentido valorar una zapatilla mixta reactiva, con placa parcial o espuma
+                de alto retorno. No tiene por qué ser una placa de carbono completa. Muchas veces una zapatilla
+                menos agresiva te permite entrenar mejor, recuperar antes y tener buenas sensaciones sin pagar
+                el precio físico y económico de una superzapatilla.
+              </p>
+
+              <p>
+                El uso recomendado sería para tiradas largas con ritmo, series largas, tempo runs o sesiones
+                específicas. No para todos los rodajes suaves.
+              </p>
+            </div>
+
+            <div class="pace-card">
+              <span class="tag">3. Ritmo de rodaje inferior a 4:30/km</span>
+              <h3>La placa completa empieza a tener más sentido</h3>
+
+              <p>
+                Si estás preparando un maratón cerca de las 3 horas o por debajo, una media maratón alrededor
+                de 1h25 o un 10K cerca de 38 minutos, la placa de carbono completa puede empezar a justificar
+                su inversión.
+              </p>
+
+              <p>
+                Aun así, no es automático. Hay corredores que la notan muchísimo y otros que sienten que la
+                zapatilla les cambia demasiado la mecánica o les genera inestabilidad. La mejor decisión es
+                probarla antes de competir con ella.
+              </p>
+
+              <p>
+                En este caso, la recomendación de Jrun Lab sería reservarla para competición y sesiones clave.
+                El resto de entrenamientos deberían hacerse con zapatillas más duraderas, cómodas y controlables.
+              </p>
+            </div>
+
+            <div class="pace-card">
+              <span class="tag">4. Ritmos por debajo de 3:40/km</span>
+              <h3>Herramienta habitual para competir rápido</h3>
+
+              <p>
+                En ritmos muy altos dentro del corredor amateur avanzado, la placa completa ya es una herramienta
+                habitual de competición. Aquí la pregunta no suele ser tanto si usar carbono o no, sino qué modelo
+                encaja mejor con tu técnica, peso, distancia y tolerancia muscular.
+              </p>
+
+              <p>
+                Un maratón a 3:40/km equivale aproximadamente a 2h35. No hablamos de élite mundial, pero sí de
+                un nivel amateur muy alto. En este contexto, el calzado de competición puede marcar diferencias
+                pequeñas que sí importan.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <section>
+          <div class="section-title">
+            <img src="logo.png" alt="Jrun Lab">
+            <h2>Durabilidad: el dato que muchos olvidan</h2>
+          </div>
+
+          <p>
+            Una zapatilla de competición con espuma muy reactiva no dura igual que una zapatilla diaria.
+            Las espumas más avanzadas pueden perder parte de su respuesta con el uso, especialmente si el corredor
+            pesa más, entrena sobre superficies duras o utiliza la zapatilla para demasiadas sesiones.
+          </p>
+
+          <p>
+            Como orientación, muchas zapatillas de competición ofrecen su mejor rendimiento durante unos
+            200 a 400 kilómetros, dependiendo del modelo y del uso. Esto significa que una zapatilla de casi
+            300 euros puede darte unas pocas carreras importantes y varias sesiones clave antes de perder parte
+            del motivo por el que la compraste.
+          </p>
+
+          <p>
+            La conclusión práctica es clara: si entrenas siempre con la zapatilla de carbono, la gastas muy rápido.
+            Por eso tiene sentido rotar calzado y reservar cada modelo para su función.
+          </p>
+        </section>
+
+        <section>
+          <div class="section-title">
+            <img src="logo.png" alt="Jrun Lab">
+            <h2>Errores típicos que vemos en Jrun Lab</h2>
+          </div>
+
+          <ul>
+            <li>
+              <strong>Comprar la zapatilla del campeón.</strong> Que un atleta profesional gane con un modelo
+              no significa que sea el mejor para ti. Su ritmo, peso, técnica y volumen de entrenamiento no son
+              los tuyos.
+            </li>
+            <li>
+              <strong>Buscar “la mejor zapatilla para principiantes”.</strong> Para empezar, lo más recomendable
+              suele ser una zapatilla cómoda, estable y amortiguada, no la más cara ni la más agresiva.
+            </li>
+            <li>
+              <strong>Usar el mismo modelo para todo.</strong> No es lo mismo rodar suave, hacer series, competir
+              o hacer una tirada larga. Rotar dos o tres modelos puede mejorar sensaciones y alargar la vida útil
+              del material.
+            </li>
+            <li>
+              <strong>Ignorar el peso corporal.</strong> El peso cambia la forma en la que cargas la espuma,
+              activas la placa y toleras la estabilidad de la zapatilla.
+            </li>
+            <li>
+              <strong>Confundir una mixta con placa parcial con una superzapatilla de competición.</strong>
+              Son productos distintos y tienen usos distintos.
+            </li>
+            <li>
+              <strong>Creer que la zapatilla corrige un mal entrenamiento.</strong> Ningún modelo compensa
+              una mala planificación, exceso de intensidad o falta de descanso.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="section-title">
+            <img src="logo.png" alt="Jrun Lab">
+            <h2>Cómo elegir la tuya en 4 pasos</h2>
+          </div>
+
+          <ol>
+            <li>
+              <strong>Mide tu ritmo real de rodaje.</strong> Mira tus últimas cinco salidas y calcula a qué ritmo
+              corres de verdad, no el ritmo que te gustaría correr.
+            </li>
+            <li>
+              <strong>Mete tu peso en la ecuación.</strong> A mayor peso, mayor carga sobre la espuma y más fuerza
+              vertical. Esto puede hacer que ciertas zapatillas tengan más o menos sentido.
+            </li>
+            <li>
+              <strong>Define el uso principal.</strong> ¿La quieres para entrenar a diario, para tiradas largas,
+              para sesiones de calidad o solo para competir?
+            </li>
+            <li>
+              <strong>Prueba sensaciones.</strong> Si una zapatilla teóricamente perfecta te resulta inestable,
+              incómoda o rara, no es la tuya. La respuesta individual importa mucho.
+            </li>
+          </ol>
+        </section>
+
+        <section>
+          <div class="section-title">
+            <img src="logo.png" alt="Jrun Lab">
+            <h2>La matriz personalizada: lo que de verdad necesitas</h2>
+          </div>
+
+          <p>
+            La guía anterior sirve como mapa general, pero no sustituye a una recomendación individual.
+            Para acertar mejor hace falta cruzar ritmo, peso, objetivo, experiencia, historial de lesiones,
+            frecuencia semanal, tipo de entrenamiento y zapatillas actuales.
+          </p>
+
+          <p>
+            En Jrun Lab no queremos que compres por impulso. Queremos que entiendas qué necesitas y cuándo
+            merece la pena invertir. A veces será una placa completa. Otras veces será una mixta. Y muchas veces,
+            la mejor decisión será una zapatilla amortiguada bien elegida y un plan de entrenamiento mejor estructurado.
+          </p>
+        </section>
+
+        <section>
+          <div class="section-title">
+            <img src="logo.png" alt="Jrun Lab">
+            <h2>La verdad incómoda</h2>
+          </div>
+
+          <p>
+            El marketing del running quiere que pienses que la zapatilla cara te hará mejor corredor.
+            La realidad es más sencilla y más incómoda: la placa de carbono puede ayudar, pero no hace magia.
+          </p>
+
+          <p>
+            Su beneficio depende de tu ritmo, tu peso, tu técnica, tu fatiga, el tipo de sesión y la forma en la que
+            tu cuerpo responde a esa geometría. Para muchos corredores populares, mejorar el plan de entrenamiento,
+            descansar mejor, controlar cargas y elegir una zapatilla adecuada puede aportar más que comprar la última
+            zapatilla de competición.
+          </p>
+
+          <p>
+            En Jrun Lab trabajamos desde esa idea: correr mejor no depende solo de lo que llevas en los pies,
+            sino de cómo entrenas, cómo recuperas y cómo tomas decisiones.
+          </p>
+        </section>
+
+        <div class="final-cta">
+          <img src="logo.png" alt="Jrun Lab">
+
+          <h2>Da el siguiente paso con Jrun Lab</h2>
+
+          <p>
+            Revisa tu entrenamiento, mejora tu rendimiento y descubre si realmente estás entrenando con calidad.
+          </p>
+
+          <div class="final-buttons">
+
+            <div class="final-button-card">
+              <h3>Mejorar mi rendimiento corriendo</h3>
+              <p>
+                Accede a la landing principal de Jrun Lab y empieza a trabajar tu rendimiento con más criterio.
+              </p>
+              <a class="btn btn-primary" href="https://project-uu8n0.vercel.app/" target="_blank">
+                Mejorar mi rendimiento
+              </a>
+            </div>
+
+            <div class="final-button-card">
+              <h3>Test de calidad de entrenamiento</h3>
+              <p>
+                Descubre si entrenas o no con calidad y detecta qué puede estar frenando tu progreso.
+              </p>
+              <a class="btn btn-secondary" href="https://vermel-programaci-n-jrun-intensity.vercel.app/" target="_blank">
+                Hacer el test
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </article>
+
+      <aside class="side-cta">
+        <h3>¿Quieres mejorar corriendo?</h3>
+        <p>
+          Mejora tu rendimiento con una estrategia más inteligente que simplemente comprar zapatillas caras.
+        </p>
+
+        <a class="btn btn-primary" href="https://project-uu8n0.vercel.app/" target="_blank">
+          Mejorar mi rendimiento
+        </a>
+
+        <a class="btn btn-secondary" href="https://vermel-programaci-n-jrun-intensity.vercel.app/" target="_blank">
+          Test de calidad
+        </a>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <footer>
+    © 2026 Jrun Lab · Running inteligente, entrenamiento con criterio y rendimiento real.
+  </footer>
+
+</body>
+</html>
